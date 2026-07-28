@@ -114,11 +114,21 @@ export default function ProductsPage() {
     
     setSaving(true);
     try {
+      const productData = {
+        ...formData,
+        buyPrice: parseFloat(formData.buyPrice),
+        sellPrice: parseFloat(formData.sellPrice),
+        quantity: parseInt(formData.quantity),
+        minStock: parseInt(formData.minStock),
+        categoryId: formData.categoryId || undefined,
+        supplierId: formData.supplierId || undefined,
+      };
+      
       if (editingProduct) {
-        await productsAPI.update(editingProduct.id, formData);
+        await productsAPI.update(editingProduct.id, productData);
         showToast('success', 'Product updated successfully');
       } else {
-        await productsAPI.create(formData);
+        await productsAPI.create(productData);
         showToast('success', 'Product created successfully');
       }
       setShowForm(false);

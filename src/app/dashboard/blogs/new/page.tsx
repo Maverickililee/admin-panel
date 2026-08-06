@@ -157,16 +157,17 @@ export default function NewBlogPage() {
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Link
+                    Link (URL slug)
                   </label>
                   <input
-                    type="url"
+                    type="text"
                     name="link"
                     value={formData.link}
                     onChange={handleChange}
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                    placeholder="https://example.com/blog"
+                    placeholder="the-future-of-automation-with-n8n"
                   />
+                  <p className="text-xs text-gray-500 mt-1">URL slug for the blog post (e.g., the-future-of-automation-with-n8n)</p>
                 </div>
 
                 <div>
